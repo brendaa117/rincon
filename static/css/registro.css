@@ -1,0 +1,121 @@
+body {
+    font-family: "Times New Roman", Georgia, serif;
+    background: url('../img/inicio.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.header {
+    background-color: #edb58d;
+    padding: 22px 15px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.header button {
+    float: right;
+    margin: 0 3px;
+    padding: 10px 15px;
+    background-color: #E76F51;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    margin-top: 100px;
+    background: rgba(255, 165, 125, 0.6);
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E8A87C;
+    color: white;
+    outline: none;
+}
+
+.gender-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.gender-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #E8A87C;
+    border: none;
+    color: rgba(67, 63, 63, 0.688);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gender-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social-buttons img {
+    width: 40px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-buttons img:hover {
+    transform: scale(1.2);
+}
+
+.ok {
+    background-color: #E76F51;
+    border: none;
+    color: rgb(29, 28, 27);
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    transform: translateX(50%);
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ok:hover {
+    transform: translateX(50%) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}

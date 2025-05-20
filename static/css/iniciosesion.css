@@ -1,0 +1,89 @@
+body {
+    background: url('../img/inicio.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: "Times New Roman", Georgia, serif;
+}
+
+.navbar {
+    background-color: #F4C7A5;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.nav-buttons button {
+    background-color: #E76F51;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    background: rgba(214, 144, 115, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 100px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    background-color: #E8A87C;
+    outline: none;
+}
+
+.login-btn {
+    background-color: #E76F51;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #111110;
+}
+
+.links a {
+    color: #0d0c0c;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: #c8e6c9;
+    color: #256029;
+}
+
+.alert.danger {
+    background-color: #f8d7da;
+    color: #842029;
+}

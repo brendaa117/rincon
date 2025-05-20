@@ -1,124 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
-<style>
-body {
-    background: url('inicio.png') no-repeat center center fixed;
-    background-size: cover;
-    margin: 0;
-    font-family: "Times New Roman", Georgia, serif;
-    
-}
-
-.navbar {
-    background-color: #F4C7A5;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 20px;
-}
-
-.nav-buttons button {
-    background-color: #E76F51;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.nav-buttons button.active {
-    background-color:#E76F51;
-}
-
-.container {
-    width: 90%;
-    max-width: 400px;
-    background: rgba(255, 165, 125, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 100px auto;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    background-color: #E8A87C;
-    outline none;
-}
-
-.login-btn {
-    background-color: #E76F51;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-btn:hover {
-    background-color: #D64C38;
-}
-
-.links a {
-    color: #E76F51;
-    text-decoration: none;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
- 	
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Rincón del Lector - Inicio de Sesión</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registro.css') }}">
 </head>
 <body>
-
     <div class="navbar">
         <span>EL RINCÓN DEL LECTOR</span>
         <div class="nav-buttons">
-            <button class="active" onclick="location.href='pag_inicio.html'">REGRESAR</button>
-
+            <button onclick="location.href='{{ url_for('registro') }}'">REGISTRARSE</button>
         </div>
     </div>
 
     <div class="container">
         <h1>INICIO DE SESIÓN</h1>
-        <form>
+        <form method="POST" action="{{ url_for('login_post') }}">
             <label for="email">CORREO</label><br>
-            <input type="email" id="email" placeholder="juan@example.com" required><br>
+            <input type="email" id="email" name="email" placeholder="juan@example.com" required><br>
 
-            <label for="password">CONTRASEÑA</label><br>
-            <input type="password" id="password" placeholder="Ingresa tu contraseña" required><br>
+            <label for="contrasena">CONTRASEÑA</label><br>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required><br>
 
             <input type="checkbox" id="remember"><label for="remember">Recordar contraseña</label><br>
 
-            <button type="submit" class="login-btn" onclick="location.href='pag_prin.html'">INICIO DE SESIÓN</button>
-</button>
+            <button type="submit" class="login-btn">INICIAR SESIÓN</button>
         </form>
 
         <div class="links">
-            <a href="#">¿Olvidaste tu contraseña?</a> |
-            <a href="registro.html">Crear nueva cuenta</a>
+            <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
     </div>
-
 </body>
 </html>
-

@@ -92,3 +92,5 @@ CREATE TABLE Libro_Genero (
     FOREIGN KEY (id_genero) REFERENCES Generos(id_genero) ON DELETE CASCADE,
     FOREIGN KEY (ISBN) REFERENCES Libros(ISBN) ON DELETE CASCADE
 );
+
+SELECT * FROM Usuarios;
