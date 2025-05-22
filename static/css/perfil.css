@@ -1,0 +1,56 @@
+body {
+    font-family: "Times New Roman", Georgia, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.header {
+    background-color: #F4C7A5;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.header span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.buttons {
+    padding-right: 10px;
+}
+
+.buttons button {
+    background-color: #E76F51;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #d65a3b;
+}
+
+.logo-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 500px;
+    height: 400px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
