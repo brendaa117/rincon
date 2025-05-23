@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        .book-info {
+            padding: 15px;
+        }
+        .book-title {
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            height: 40px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .book-details {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Catalog</h1>
+        
+        <div id="books-container" class="books-grid">
+            <div class="loading">Loading books...</div>
+        </div>
+    </div>
+
+    <script>
+        // This would normally come from your database query
+        // For demonstration, we'll use the first 20 books from your data
+        const books = [
+            {
+                isbn: '0271406748694',
+                title: 'Wide oil land source.',
+                year: 1951,
+                pages: 246,
+                publisher: 'Meza, Powell and Barnes',
+                cover_url: 'https://covers.openlibrary.org/b/id/8231856-L.jpg'
+            },
+            {
+                isbn: '1491785222127',
+                title: 'Themselves walk.',
+                year: 1968,
+                pages: 629,
+                publisher: 'Atkins-Taylor',
+                cover_url: 'https://covers.openlibrary.org/b/id/11153234-L.jpg'
+            },
+            {
+                isbn: '8945634494756',
+                title: 'Member base relate white.',
+                year: 1995,
+                pages: 1199,
+                publisher: 'Khan-Russell',
+                cover_url: 'https://covers.openlibrary.org/b/id/9872752-L.jpg'
+            },
+            {
+                isbn: '1125601747524',
+                title: 'That your its.',
+                year: 1953,
+                pages: 1179,
+                publisher: 'Roman Inc',
+                cover_url: 'https://covers.openlibrary.org/b/id/10594709-L.jpg'
+            },
+            {
+                isbn: '1239787935120',
+                title: 'Memory author.',
+                year: 1990,
+                pages: 492,
+                publisher: 'Mason Inc',
+                cover_url: 'https://covers.openlibrary.org/b/id/240727-L.jpg'
+            },
+            {
+                isbn: '2684682989586',
+                title: 'Congress others ask six.',
+                year: 2022,
+                pages: 645,
+                publisher: 'Daniels, Melendez and Mills',
+                cover_url: 'https://covers.openlibrary.org/b/id/8226191-L.jpg'
+            },
+            {
+                isbn: '1525549501287',
+                title: 'Already think red perform thousand.',
+                year: 1936,
+                pages: 758,
+                publisher: 'Drake PLC',
+                cover_url: 'https://covers.openlibrary.org/b/id/10513292-L.jpg'
+            },
+            {
+                isbn: '0927462070608',
+                title: 'Whatever magazine.',
+                year: 1912,
+                pages: 1149,
+                publisher: 'Rogers PLC',
+                cover_url: 'https://covers.openlibrary.org/b/id/10038498-L.jpg'
+            },
+            {
+                isbn: '9744430949061',
+                title: 'Reflect war bag.',
+                year: 2011,
+                pages: 866,
+                publisher: 'Weeks-Hernandez',
+                cover_url: 'https://covers.openlibrary.org/b/id/11032741-L.jpg'
+            },
+            {
+                isbn: '0570877697588',
+                title: 'Entire run remain.',
+                year: 1949,
+                pages: 746,
+                publisher: 'Taylor, Valdez and Cobb',
+                cover_url: 'https://covers.openlibrary.org/b/id/8091016-L.jpg'
+            },
+            {
+                isbn: '5131426618732',
+                title: 'Heart benefit reason old.',
+                year: 1970,
+                pages: 1121,
+                publisher: 'Wood, Day and Adkins',
+                cover_url: 'https://covers.openlibrary.org/b/id/8231856-L.jpg'
+            },
+            {
+                isbn: '1498489950174',
+                title: 'Event social myself.',
+                year: 1945,
+                pages: 361,
+                publisher: 'Barker and Sons',
+                cover_url: 'https://covers.openlibrary.org/b/id/11153234-L.jpg'
+            }
+        ];
+
+        // Function to render books
+        function renderBooks() {
+            const booksContainer = document.getElementById('books-container');
+            booksContainer.innerHTML = ''; // Clear loading message
+
+            books.forEach(book => {
+                const bookCard = document.createElement('div');
+                bookCard.className = 'book-card';
+                
+                // Create image element with error handling
+                const img = document.createElement('img');
+                img.className = 'book-cover';
+                img.src = book.cover_url;
+                img.alt = Cover of ${book.title};
+                img.onerror = function() {
+                    // If image fails to load, use a placeholder
+                    this.src = https://via.placeholder.com/200x280?text=No+Cover;
+                };
+                
+                // Create book info container
+                const bookInfo = document.createElement('div');
+                bookInfo.className = 'book-info';
+                
+                // Add book details
+                bookInfo.innerHTML = `
+                    <h3 class="book-title">${book.title}</h3>
+                    <p class="book-details">Year: ${book.year}</p>
+                    <p class="book-details">Pages: ${book.pages}</p>
+                    <p class="book-details">Publisher: ${book.publisher}</p>
+                    <p class="book-details">ISBN: ${book.isbn}</p>
+                `;
+                
+                // Append elements to card
+                bookCard.appendChild(img);
+                bookCard.appendChild(bookInfo);
+                
+                // Add card to container
+                booksContainer.appendChild(bookCard);
+            });
+        }
+
+        // In a real application, you would fetch data from your server
+        // For example:
+        /*
+        async function fetchBooks() {
+            try {
+                const response = await fetch('/api/books');
+                const data = await response.json();
+                
+                // Update the books array with data from server
+                books.length = 0;
+                books.push(...data);
+                
+                // Render the books
+                renderBooks();
+            } catch (error) {
+                console.error('Error fetching books:', error);
+                document.getElementById('books-container').innerHTML = 
+                    '<div class="loading">Error loading books. Please try again later.</div>';
+            }
+        }
+        
+        // Call the fetch function
+        fetchBooks();
+        */
+
+        // For this demo, we'll just render the hardcoded books
+        window.addEventListener('DOMContentLoaded', renderBooks);
+    </script>
+</body>
+</html>
